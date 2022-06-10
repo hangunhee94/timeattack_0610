@@ -8,7 +8,7 @@ class Product(models.Model):
 
     name = models.CharField(max_length=256)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
-    image = models.CharField(max_length=256)
+    image = models.CharField(max_length=256,default=True )
     description = models.CharField(max_length=256)
     price = models.CharField(max_length=256)
     stock = models.CharField(max_length=256)
@@ -23,11 +23,7 @@ class OrderStatus(models.Model):
     class Meta:
         db_table = "orders"
 
-    ordercomplete = models.CharField(max_length=256)
-    paymentcomplete = models.CharField(max_length=256)
-    cancel = models.CharField(max_length=256)
-    deliverystart = models.CharField(max_length=256)
-    deliverycomplete = models.CharField(max_length=256)
+    statusname = models.CharField(max_length=256)
 
 class ProductOrder(models.Model):
     class Meta:
